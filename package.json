@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/tomhco/mqttmap/issues"
   },
-  "homepage": "https://github.com/tomhco/mqttmap"
+  "homepage": "https://github.com/tomhco/mqttmap",
+  "dependencies": {
+    "mqtt": "~0.3.13",
+    "mongodb": "~1.4.22"
+  }
 }
