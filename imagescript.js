@@ -7,7 +7,7 @@ var machina = require('machina');
 
 var SquareFsm = machina.Fsm.extend({
 
-	initialState: 0,
+	initialState: 'one',
 
 	sendState: function (command, socket) {
 		io.sockets.emit(command, this.images[this.state]);
@@ -15,16 +15,16 @@ var SquareFsm = machina.Fsm.extend({
 
 	states: {
 
-		0: {
-			_onEnter: this.sendState.bind(this)
+		'one': {
+			_onEnter: this.sendState
 		},
 
-		1: {
-			onEnter: this.sendState.bind(this)
+		'two': {
+			onEnter: this.sendState
 		},
 
-		2: {
-			onEnter: this.sendState.bind(this)
+		'three': {
+			onEnter: this.sendState
 		}
 	}
 
@@ -53,9 +53,9 @@ cubeThree.images = [
 
 io.on('connection', function (socket) {
 
-	cubeOne.sendState(0, socket);
-	cubeTwo.sendState(0, socket);
-	cubeThree.sendState(0, socket);
+	cubeOne.sendState('one', socket);
+	cubeTwo.sendState('two', socket);
+	cubeThree.sendState('three', socket);
 
 });
 
