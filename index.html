@@ -4,33 +4,69 @@
 	<title>MQTTMAP</title>
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://92.222.69.233:3000/socket.io/socket.io.js"></script>
+	<style>
+
+	body {
+
+		background-color: #ebebeb;
+
+	}
+
+	.wrapper {
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -320px;
+		margin-left: -470px;
+		width: 960px;
+		height: 640px;
+
+	}
+
+	.nospace {
+
+		display: block;
+		float: left;
+		padding: 0;
+		margin: 0;
+
+	}
+
+	</style>
 </head>
 <body>
-<img id="cubeOne" alt="cubeOne" src="http://www.lpzoo.org/sites/default/files/imagesfacts/sand_cat.jpg?1331838394" />
-<img id="cubeTwo" alt="cubeTwo" src="http://www.lpzoo.org/sites/default/files/imagesfacts/sand_cat.jpg?1331838394" />
-<img id="cubeThree" alt="cubeThree" src="http://www.lpzoo.org/sites/default/files/imagesfacts/sand_cat.jpg?1331838394" />
+
+	<div class="wrapper">
+		<img id="cubeOne" class="nospace" alt="cubeOne" src="http://i.imgur.com/SEcIi7e.png" />
+		<img id="cubeTwo" class="nospace" alt="cubeTwo" src="http://imgur.com/BfrnHOw,SpcBwBv,shaDgBf" />
+		<img id="cubeThree" class="nospace" alt="cubeThree" src="http://imgur.com/BfrnHOw,SpcBwBv,shaDgBf" />
+		<img class="nospace" alt="map" src="http://i.imgur.com/SEcIi7e.png" />
+	</div>
+
 	<script>
 
-	var socket = io.connect('http://92.222.69.233:3000');
+		var socket = io.connect('http://92.222.69.233:3000');
 
-	socket.on('cubeOne', function(image){
+		socket.on('cubeOne', function(image){
 
-		$("#cubeOne").attr("src", image);
+			$("#cubeOne").attr("src", image);
 
-	});
+		});
 
-	socket.on('cubeTwo', function(image){
+		socket.on('cubeTwo', function(image){
 
-		$("#cubeTwo").attr("src", image);
+			$("#cubeTwo").attr("src", image);
 
-	});
+		});
 
-	socket.on('cubeThree', function(image){
+		socket.on('cubeThree', function(image){
 
-		$("#cubeThree").attr("src", image);
+			$("#cubeThree").attr("src", image);
 
-	});
+		});
 
 	</script>
+
 </body>
 </html>
