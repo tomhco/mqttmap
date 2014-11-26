@@ -29,7 +29,7 @@ var images = [
 
 var SquareFsm = machina.Fsm.extend({
 
-	initialState: 'one',
+	initialState: '0',
 
 	sendState: function (command, socket) {
 		io.sockets.emit(command, images[command][this.state]);
