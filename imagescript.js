@@ -16,15 +16,15 @@ var SquareFsm = machina.Fsm.extend({
 	states: {
 
 		0: {
-			_onEnter: this.sendState
+			_onEnter: this.sendState.bind(this)
 		},
 
 		1: {
-			onEnter: this.sendState
+			onEnter: this.sendState.bind(this)
 		},
 
 		2: {
-			onEnter: this.sendState
+			onEnter: this.sendState.bind(this)
 		}
 	}
 
