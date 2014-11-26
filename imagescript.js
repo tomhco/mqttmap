@@ -53,25 +53,8 @@ var SquareFsm = machina.Fsm.extend({
 });
 
 var cubeOne = new SquareFsm();
-cubeOne.images = [
-	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
-	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
-	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
-];
-
 var cubeTwo = new SquareFsm();
-cubeTwo.images = [
-	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
-	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
-	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
-];
-
 var cubeThree = new SquareFsm();
-cubeThree.images = [
-	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
-	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
-	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
-];
 
 io.on('connection', function (socket) {
 
