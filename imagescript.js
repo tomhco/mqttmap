@@ -5,7 +5,7 @@ var server = require('http').createServer();
 var io = require('socket.io')(server);
 var machina = require('machina');
 
-var squareFsm = new machina.Fsm({
+var SquareFsm = machina.Fsm({
 
 	initialState: 'one',
 	images: [],
@@ -42,21 +42,21 @@ var squareFsm = new machina.Fsm({
 
 });
 
-var cubeOne = new squareFsm();
+var cubeOne = new SquareFsm();
 cubeOne.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
 	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
 ];
 
-var cubeTwo = new squareFsm();
+var cubeTwo = new SquareFsm();
 cubeTwo.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
 	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
 ];
 
-var cubeThree = new squareFsm();
+var cubeThree = new SquareFsm();
 cubeThree.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
