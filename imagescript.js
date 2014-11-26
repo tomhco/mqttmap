@@ -4,9 +4,21 @@
 var server = require('http').createServer();
 var io = require('socket.io')(server);
 var machina = require('machina');
+var mqtt = require('mqtt');
+
+var client = mqtt.createClient(1883, 'broker.i-dat.org');
 
 var sendState = function (socket) {
+
+	if (typeof socket === 'object') {
+
+		socket.emit(this.command, this.images[this.state]);
+		return;
+
+	}
+
 	io.sockets.emit(this.command, this.images[this.state]);
+
 };
 
 var SquareFsm = {
@@ -31,6 +43,7 @@ var SquareFsm = {
 			onEnter: sendState,
 			sendState: sendState
 		}
+
 	}
 
 };
@@ -58,6 +71,26 @@ cubeThree.images = [
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
 	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
 ];
+
+mqtt.subscribe('domtom/one');
+mqtt.subscribe('domtom/two');
+mqtt.subscribe('domtom/three');
+
+client.on('message', function (topic, payload) {
+
+	switch (topic) {
+	case 'domtom/one':
+		cubeOne.transition(payload);
+		break;
+	case 'domtom/two':
+		cubeTwo.transition(payload);
+		break;
+	case 'domtom/three':
+		cubeThree.transition(payload);
+		break;
+	}
+
+});
 
 io.on('connection', function (socket) {
 
