@@ -7,37 +7,24 @@ var machina = require('machina');
 
 var SquareFsm = machina.Fsm.extend({
 
-	initialState: 'one',
-	command: '',
-	images: [],
+	initialState: 0,
+
+	sendState: function (command, socket) {
+		io.sockets.emit(command, this.images[this.state]);
+	},
 
 	states: {
-		'one': {
-			_onEnter: function (command, socket) {
-				this.handle('sendState', command, socket);
-			},
 
-			sendState: function (command, socket) {
-				io.sockets.emit(command, this.images[0]);
-			}
+		0: {
+			_onEnter: this.sendState
 		},
-		'two': {
-			_onEnter: function (command, socket) {
-				this.handle('sendState', command, socket);
-			},
 
-			sendState: function (command, socket) {
-				io.sockets.emit(command, this.images[1]);
-			}
+		1: {
+			onEnter: this.sendState
 		},
-		'three': {
-			_onEnter: function (command, socket) {
-				this.handle('sendState', command, socket);
-			},
 
-			sendState: function (command, socket) {
-				io.sockets.emit(command, this.images[2]);
-			}
+		2: {
+			onEnter: this.sendState
 		}
 	}
 
@@ -66,9 +53,9 @@ cubeThree.images = [
 
 io.on('connection', function (socket) {
 
-	cubeOne.handle('sendState', 'one', socket);
-	cubeTwo.handle('sendState', 'two', socket);
-	cubeThree.handle('sendState', 'three', socket);
+	cubeOne.sendState(0, socket);
+	cubeTwo.sendState(0, socket);
+	cubeThree.sendState(0, socket);
 
 });
 

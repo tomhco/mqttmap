@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/tomhco/mqttmap",
   "dependencies": {
+    "machina": "^0.4.0-1",
+    "mongodb": "~1.4.22",
     "mqtt": "~0.3.13",
-    "mongodb": "~1.4.22"
+    "socket.io": "^1.2.1"
   }
 }
