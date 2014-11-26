@@ -5,7 +5,7 @@ var server = require('http').createServer();
 var io = require('socket.io')(server);
 var machina = require('machina');
 
-var SquareFsm = machina.Fsm({
+var SquareFsm = machina.Fsm.extend({
 
 	initialState: 'one',
 	images: [],
@@ -29,7 +29,7 @@ var SquareFsm = machina.Fsm({
 				io.sockets.emit('cubeTwo', this.images[1]);
 			}
 		},
-		'three' {
+		'three': {
 			_onEnter: function () {
 				this.handle('sendState');
 			},
