@@ -7,7 +7,7 @@ var index = fs.readFileSync('index.html');
 var server = require('http').createServer(function (req, res) {
 
 	res.writeHead(200, {
-		'Content-Type': 'text/plain'
+		'Content-Type': 'text/html'
 	});
 
 	res.end(index);
