@@ -1,7 +1,19 @@
 /* jslint node: true */
 'use strict';
 
-var server = require('http').createServer();
+var fs = require('fs');
+var index = fs.readFileSync('index.html');
+
+var server = require('http').createServer(function (req, res) {
+
+	res.writeHead(200, {
+		'Content-Type': 'text/plain'
+	});
+
+	res.end(index);
+
+});
+
 var io = require('socket.io')(server);
 var machina = require('machina');
 var mqtt = require('mqtt');
