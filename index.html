@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MQTTMAP</title>
+	<script src="http://92.222.69.233:3000/socket.io/socket.io.js"></script>
+	<script>
+
+	var socket = io.connect('http://92.222.69.233:3000');
+
+	socket.on('one', function(image){
+
+		console.log('cubeOne: ' + image);
+
+	});
+
+	socket.on('two', function(image){
+
+		console.log('cubeTwo: ' + image);
+
+	});
+
+	socket.on('three', function(image){
+
+		console.log('cubeThree: ' + image);
+
+	});
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

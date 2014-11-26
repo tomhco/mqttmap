@@ -8,6 +8,7 @@ var machina = require('machina');
 var SquareFsm = machina.Fsm.extend({
 
 	initialState: 'one',
+	command: '',
 	images: [],
 
 	states: {
@@ -17,7 +18,7 @@ var SquareFsm = machina.Fsm.extend({
 			},
 
 			sendState: function () {
-				io.sockets.emit('cubeOne', this.images[0]);
+				io.sockets.emit(this.command, this.images[0]);
 			}
 		},
 		'two': {
@@ -26,7 +27,7 @@ var SquareFsm = machina.Fsm.extend({
 			},
 
 			sendState: function () {
-				io.sockets.emit('cubeTwo', this.images[1]);
+				io.sockets.emit(this.command, this.images[1]);
 			}
 		},
 		'three': {
@@ -35,7 +36,7 @@ var SquareFsm = machina.Fsm.extend({
 			},
 
 			sendState: function () {
-				io.sockets.emit('cubeThree', this.images[2]);
+				io.sockets.emit(this.command, this.images[2]);
 			}
 		}
 	}
@@ -43,6 +44,7 @@ var SquareFsm = machina.Fsm.extend({
 });
 
 var cubeOne = new SquareFsm();
+cubeOne.command = 'one';
 cubeOne.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
@@ -50,6 +52,7 @@ cubeOne.images = [
 ];
 
 var cubeTwo = new SquareFsm();
+cubeOne.command = 'two';
 cubeTwo.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
@@ -57,6 +60,7 @@ cubeTwo.images = [
 ];
 
 var cubeThree = new SquareFsm();
+cubeOne.command = 'three';
 cubeThree.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
