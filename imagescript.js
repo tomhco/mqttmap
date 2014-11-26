@@ -10,36 +10,36 @@ var client = mqtt.createClient(1883, 'broker.i-dat.org');
 
 var sendState = function (socket) {
 
-	if (typeof socket === 'object') {
+	if (typeof socket !== 'undefined') {
 
-		socket.emit(this.command, this.images[this.state]);
+		socket.emit(this.command, this.images[0]);
 		return;
 
 	}
 
-	io.sockets.emit(this.command, this.images[this.state]);
+	io.sockets.emit(this.command, this.images[0]);
 
 };
 
 var SquareFsm = {
 
-	initialState: '0',
+	initialState: 'one',
 	command: '',
 	images: [],
 
 	states: {
 
-		'0': {
+		'one': {
 			_onEnter: sendState,
 			sendState: sendState
 		},
 
-		'1': {
+		'two': {
 			onEnter: sendState,
 			sendState: sendState
 		},
 
-		'2': {
+		'three': {
 			onEnter: sendState,
 			sendState: sendState
 		}
