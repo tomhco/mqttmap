@@ -72,9 +72,9 @@ cubeThree.images = [
 	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
 ];
 
-mqtt.subscribe('domtom/one');
-mqtt.subscribe('domtom/two');
-mqtt.subscribe('domtom/three');
+client.subscribe('domtom/one');
+client.subscribe('domtom/two');
+client.subscribe('domtom/three');
 
 client.on('message', function (topic, payload) {
 
