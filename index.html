@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>MQTTMAP</title>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://92.222.69.233:3000/socket.io/socket.io.js"></script>
 	<script>
 
@@ -9,25 +10,27 @@
 
 	socket.on('cubeOne', function(image){
 
-		console.log('cubeOne: ' + image);
+		$("#cubeOne").attr("src", image);
 
 	});
 
 	socket.on('cubeTwo', function(image){
 
-		console.log('cubeTwo: ' + image);
+		$("#cubeTwo").attr("src", image);
 
 	});
 
 	socket.on('cubeThree', function(image){
 
-		console.log('cubeThree: ' + image);
+		$("#cubeThree").attr("src", image);
 
 	});
 
 	</script>
 </head>
 <body>
-
+<img id="cubeOne" alt="cubeOne" src="http://www.lpzoo.org/sites/default/files/imagesfacts/sand_cat.jpg?1331838394" />
+<img id="cubeTwo" alt="cubeTwo" src="http://www.lpzoo.org/sites/default/files/imagesfacts/sand_cat.jpg?1331838394" />
+<img id="cubeThree" alt="cubeThree" src="http://www.lpzoo.org/sites/default/files/imagesfacts/sand_cat.jpg?1331838394" />
 </body>
 </html>
