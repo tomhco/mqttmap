@@ -61,9 +61,9 @@ cubeThree.images = [
 
 io.on('connection', function (socket) {
 
-	cubeOne.handle(socket);
-	cubeTwo.handle(socket);
-	cubeThree.handle(socket);
+	cubeOne.handle('sendState', socket);
+	cubeTwo.handle('sendState', socket);
+	cubeThree.handle('sendState', socket);
 
 });
 
