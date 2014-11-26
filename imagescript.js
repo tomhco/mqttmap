@@ -51,25 +51,25 @@ var SquareFsm = {
 var cubeOne = new machina.Fsm(SquareFsm);
 cubeOne.command = 'cubeOne';
 cubeOne.images = [
-	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
-	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
-	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
+	'http://i.imgur.com/CyClSSr.png',
+	'http://i.imgur.com/mcpyvf4.png',
+	'http://i.imgur.com/v7vsUMf.png'
 ];
 
 var cubeTwo = new machina.Fsm(SquareFsm);
 cubeTwo.command = 'cubeTwo';
 cubeTwo.images = [
-	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
-	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
-	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
+	'http://i.imgur.com/7EyQmVW.png',
+	'http://i.imgur.com/EZsGDpa.png',
+	'http://i.imgur.com/bHTJyFg.png'
 ];
 
 var cubeThree = new machina.Fsm(SquareFsm);
 cubeThree.command = 'cubeThree';
 cubeThree.images = [
-	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
-	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
-	'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
+	'http://i.imgur.com/38MQ0B0.png',
+	'http://i.imgur.com/7CwZpUC.png',
+	'http://i.imgur.com/ok78Aat.png'
 ];
 
 client.subscribe('domtom/one');
