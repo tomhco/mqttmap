@@ -13,30 +13,30 @@ var SquareFsm = machina.Fsm.extend({
 
 	states: {
 		'one': {
-			_onEnter: function () {
-				this.handle('sendState');
+			_onEnter: function (command, socket) {
+				this.handle('sendState', command, socket);
 			},
 
-			sendState: function () {
-				io.sockets.emit(this.command, this.images[0]);
+			sendState: function (command, socket) {
+				io.sockets.emit(command, this.images[0]);
 			}
 		},
 		'two': {
-			_onEnter: function () {
-				this.handle('sendState');
+			_onEnter: function (command, socket) {
+				this.handle('sendState', command, socket);
 			},
 
-			sendState: function () {
-				io.sockets.emit(this.command, this.images[1]);
+			sendState: function (command, socket) {
+				io.sockets.emit(command, this.images[1]);
 			}
 		},
 		'three': {
-			_onEnter: function () {
-				this.handle('sendState');
+			_onEnter: function (command, socket) {
+				this.handle('sendState', command, socket);
 			},
 
-			sendState: function () {
-				io.sockets.emit(this.command, this.images[2]);
+			sendState: function (command, socket) {
+				io.sockets.emit(command, this.images[2]);
 			}
 		}
 	}
@@ -44,7 +44,6 @@ var SquareFsm = machina.Fsm.extend({
 });
 
 var cubeOne = new SquareFsm();
-cubeOne.command = 'one';
 cubeOne.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
@@ -52,7 +51,6 @@ cubeOne.images = [
 ];
 
 var cubeTwo = new SquareFsm();
-cubeOne.command = 'two';
 cubeTwo.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
@@ -60,7 +58,6 @@ cubeTwo.images = [
 ];
 
 var cubeThree = new SquareFsm();
-cubeOne.command = 'three';
 cubeThree.images = [
 	'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
 	'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
@@ -69,9 +66,9 @@ cubeThree.images = [
 
 io.on('connection', function (socket) {
 
-	cubeOne.handle('sendState', socket);
-	cubeTwo.handle('sendState', socket);
-	cubeThree.handle('sendState', socket);
+	cubeOne.handle('sendState', 'one', socket);
+	cubeTwo.handle('sendState', 'one', socket);
+	cubeThree.handle('sendState', 'one', socket);
 
 });
 
