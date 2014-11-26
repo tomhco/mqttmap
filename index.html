@@ -7,19 +7,19 @@
 
 	var socket = io.connect('http://92.222.69.233:3000');
 
-	socket.on('one', function(image){
+	socket.on('0', function(image){
 
 		console.log('cubeOne: ' + image);
 
 	});
 
-	socket.on('two', function(image){
+	socket.on('1', function(image){
 
 		console.log('cubeTwo: ' + image);
 
 	});
 
-	socket.on('three', function(image){
+	socket.on('2', function(image){
 
 		console.log('cubeThree: ' + image);
 

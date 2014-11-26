@@ -5,25 +5,47 @@ var server = require('http').createServer();
 var io = require('socket.io')(server);
 var machina = require('machina');
 
+var images = [
+
+	[
+		'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
+		'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
+		'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
+	],
+
+	[
+		'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
+		'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
+		'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
+	],
+
+	[
+		'http://www.catchannel.com/images/sleeping-cat-pictures.jpg',
+		'http://static.ddmcdn.com/gif/kitten-cuteness300.jpg',
+		'http://www.petandbirdclinic.com/p37B1rd/wp-content/uploads/2012/01/cat-fur-chewing.jpg'
+	],
+
+];
+
 var SquareFsm = machina.Fsm.extend({
 
 	initialState: 'one',
 
 	sendState: function (command, socket) {
-		io.sockets.emit(command, this.images[this.state]);
+		io.sockets.emit(command, images[command][this.state]);
 	},
 
 	states: {
 
-		'one': {
+		'0': {
 			_onEnter: this.sendState
 		},
 
-		'two': {
+		'1': {
 			onEnter: this.sendState
 		},
 
-		'three': {
+		'2': {
 			onEnter: this.sendState
 		}
 	}
@@ -53,9 +75,9 @@ cubeThree.images = [
 
 io.on('connection', function (socket) {
 
-	cubeOne.sendState('one', socket);
-	cubeTwo.sendState('two', socket);
-	cubeThree.sendState('three', socket);
+	cubeOne.sendState('0', socket);
+	cubeTwo.sendState('1', socket);
+	cubeThree.sendState('2', socket);
 
 });
 
