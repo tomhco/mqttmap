@@ -18,15 +18,18 @@ var SquareFsm = {
 	states: {
 
 		'0': {
-			_onEnter: sendState
+			_onEnter: sendState,
+			sendState: sendState
 		},
 
 		'1': {
-			onEnter: sendState
+			onEnter: sendState,
+			sendState: sendState
 		},
 
 		'2': {
-			onEnter: sendState
+			onEnter: sendState,
+			sendState: sendState
 		}
 	}
 
@@ -58,9 +61,9 @@ cubeThree.images = [
 
 io.on('connection', function (socket) {
 
-	cubeOne.sendState('0', socket);
-	cubeTwo.sendState('1', socket);
-	cubeThree.sendState('2', socket);
+	cubeOne.handle(socket);
+	cubeTwo.handle(socket);
+	cubeThree.handle(socket);
 
 });
 
