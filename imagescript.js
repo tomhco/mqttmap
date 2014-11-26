@@ -12,34 +12,34 @@ var sendState = function (socket) {
 
 	if (typeof socket !== 'undefined') {
 
-		socket.emit(this.command, this.images[0]);
+		socket.emit(this.command, this.images[this.state]);
 		return;
 
 	}
 
-	io.sockets.emit(this.command, this.images[0]);
+	io.sockets.emit(this.command, this.images[this.state]);
 
 };
 
 var SquareFsm = {
 
-	initialState: 'one',
+	initialState: '0',
 	command: '',
 	images: [],
 
 	states: {
 
-		'one': {
+		'0': {
 			_onEnter: sendState,
 			sendState: sendState
 		},
 
-		'two': {
+		'1': {
 			_onEnter: sendState,
 			sendState: sendState
 		},
 
-		'three': {
+		'2': {
 			_onEnter: sendState,
 			sendState: sendState
 		}
