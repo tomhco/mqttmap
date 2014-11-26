@@ -35,12 +35,12 @@ var SquareFsm = {
 		},
 
 		'two': {
-			onEnter: sendState,
+			_onEnter: sendState,
 			sendState: sendState
 		},
 
 		'three': {
-			onEnter: sendState,
+			_onEnter: sendState,
 			sendState: sendState
 		}
 
