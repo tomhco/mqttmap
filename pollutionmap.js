@@ -110,6 +110,10 @@ client.on( 'message', function ( topic, payload ) {
   case 'domtom/three':
     routeTwo.transition( payload );
     break;
+  case 'domtom/twitter':
+    routeTwo.transition( 3 );
+    break;
+
   }
 
 } );
