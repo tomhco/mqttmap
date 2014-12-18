@@ -95,6 +95,7 @@ routeTwo.colors = [
 client.subscribe( 'domtom/one' );
 client.subscribe( 'domtom/two' );
 client.subscribe( 'domtom/three' );
+client.subscribe( 'domtom/twitter' );
 
 client.on( 'message', function ( topic, payload ) {
 
