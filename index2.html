@@ -88,8 +88,6 @@
 
               socket.on('route' + i, function(color) {
 
-                console.log(color);
-
                 directionsDisplay.setOptions({
 
                   polylineOptions: {
@@ -101,6 +99,8 @@
                 directionsDisplay.setDirections(response);
 
               });
+
+              socket.emit('route' + i);
 
               if(i+1 < routes.length) {
 

@@ -98,7 +98,7 @@ client.subscribe( 'domtom/three' );
 
 client.on( 'message', function ( topic, payload ) {
 
-console.log(topic, payload);
+  console.log( topic, payload );
 
   switch ( topic ) {
   case 'domtom/one':
@@ -116,9 +116,23 @@ console.log(topic, payload);
 
 io.on( 'connection', function ( socket ) {
 
-  routeZero.handle( 'sendState', socket );
-  routeOne.handle( 'sendState', socket );
-  routeTwo.handle( 'sendState', socket );
+  socket.on( 'route0', function () {
+
+    routeZero.handle( 'sendState', socket );
+
+  } );
+
+  socket.on( 'route1', function () {
+
+    routeOne.handle( 'sendState', socket );
+
+  } );
+
+  socket.on( 'route2', function () {
+
+    routeTwo.handle( 'sendState', socket );
+
+  } );
 
 } );
 
