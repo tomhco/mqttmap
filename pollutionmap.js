@@ -112,6 +112,7 @@ client.on( 'message', function ( topic, payload ) {
     routeTwo.transition( payload );
     break;
   case 'domtom/twitter':
+    io.sockets.emit( 'twitter', payload );
     routeTwo.transition( 3 );
     break;
 

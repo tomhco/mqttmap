@@ -38,6 +38,12 @@
 
       var socket = io.connect('http://piedpiper.tomhco.rocks:3000');
 
+      socket.on('twitter', function(payload) {
+
+        console.log(payload);
+
+      });
+
       var routes = [
 
         [{
