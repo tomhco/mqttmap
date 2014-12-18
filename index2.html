@@ -74,7 +74,7 @@
 
       socket.on('twitter', function(payload) {
 
-        $( '#tweets' ).append( '<p>' + payload + '</p>' );
+        $( '#tweets' ).prepend( '<p>' + payload + '</p>' );
 
         if($("#tweets > p").length > 3) $('#tweets p:last-child', this).remove();
 
