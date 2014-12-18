@@ -62,7 +62,7 @@
       <p>Fact 2: More than 1 billion people worldwide don’t have access to safe drinking water.</p>
       <p>Fact 3: 5000 people die every day as a result of drinking unclean water.</p>
       
-      <h1>Twitter Feed</h1>
+      <h1 style="color:#2990c5;">Twitter Feed</h1>
 
     <div id="tweets"></div>
 
@@ -73,7 +73,7 @@
 
       socket.on('twitter', function(payload) {
 
-        console.log(payload);
+        $( '#tweets' ).append( '<p>' + payload + '</p>' );
 
       });
 
