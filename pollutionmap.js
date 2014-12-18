@@ -18,7 +18,7 @@ var io = require( 'socket.io' )( server );
 var machina = require( 'machina' );
 var mqtt = require( 'mqtt' );
 
-var client = mqtt.createClient( 1883, 'broker.i-dat.org' );
+var client = mqtt.createClient( 80, 'broker.i-dat.org' );
 
 var sendState = function ( socket ) {
 
@@ -97,6 +97,8 @@ client.subscribe( 'domtom/two' );
 client.subscribe( 'domtom/three' );
 
 client.on( 'message', function ( topic, payload ) {
+
+console.log(topic, payload);
 
   switch ( topic ) {
   case 'domtom/one':
