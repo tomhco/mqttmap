@@ -24,12 +24,12 @@ var sendState = function ( socket ) {
 
   if ( typeof socket !== 'undefined' ) {
 
-    socket.emit( this.command, this.images[ this.state ] );
+    socket.emit( this.command, this.colors[ this.state ] );
     return;
 
   }
 
-  io.sockets.emit( this.command, this.images[ this.state ] );
+  io.sockets.emit( this.command, this.colors[ this.state ] );
 
 };
 
@@ -100,13 +100,13 @@ client.on( 'message', function ( topic, payload ) {
 
   switch ( topic ) {
   case 'domtom/one':
-    cubeOne.transition( payload );
+    routeZero.transition( payload );
     break;
   case 'domtom/two':
-    cubeTwo.transition( payload );
+    routeOne.transition( payload );
     break;
   case 'domtom/three':
-    cubeThree.transition( payload );
+    routeTwo.transition( payload );
     break;
   }
 
